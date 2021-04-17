@@ -10,7 +10,7 @@ var indexRouter = require('./routes/index'),
 
 const api = {
 
-  init: function () {
+  init: async function () {
 
     // view engine setup
     app.set('views', path.join(__dirname, 'views'));
@@ -39,12 +39,28 @@ const api = {
       res.render('error');
     });
 
-    let json = this.getJsonFromCsv('./data/flavors_of_cacao.csv');
+    let json = await this.getJsonFromCsv('./data/flavors_of_cacao.csv');
 
   },
-
+  /**
+   * Função para ler um ficheiro csv
+   * @param csvFilePath
+   * @return {Promise<unknown>}
+   */
   getJsonFromCsv: async function (csvFilePath) {
-    console.log(await csv().fromFile(csvFilePath))
+
+    return new Promise((resolve, reject) => {
+
+      csv().fromFile(csvFilePath).then((data, err) => {
+
+        if(err)
+          reject(err);
+
+        //console.log(e);
+        resolve(data);
+      });
+
+    });
   }
 
 }.init();
