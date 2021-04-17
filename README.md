@@ -13,7 +13,7 @@ daniel
 
 fournier
 - bar
-- pir
+- pie
 - bubble
 - networks
 
