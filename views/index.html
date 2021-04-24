@@ -8,10 +8,10 @@
 
         var onLoad = function () {
 
-            $.get( "data/sample", function( res ) {
+            $.get( "data/sample?file_name=flavors_of_cacao.csv", function( res ) {
 
                 const data = {
-                    labels: labels = [
+                    labels: [
                         'January',
                         'February',
                         'March',
