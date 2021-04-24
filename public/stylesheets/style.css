@@ -6,3 +6,19 @@ body {
 a {
   color: #00B7FF;
 }
+.divTable{
+  display: table;
+}
+.divTableRow {
+  display: table-row;
+}
+.divTableCell {
+  border: 1px solid #999999;
+  display: table-cell;
+  padding: 3px 10px;
+  width: 400px;
+  height: 300px;
+}
+.divTableBody {
+  display: table-row-group;
+}
