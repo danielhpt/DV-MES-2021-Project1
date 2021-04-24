@@ -18,10 +18,10 @@ fournier (parte avançada)
 - Animações
 - Adicionar e remover dados
 - Event triggers
-- etc
+- Legend / Scale / Title / Tooltip
 
 - relatório (tutorial): Fazer tipo laboratório AMS
 - apresentação:
   Falar sobre as diferentes ferramentas que existe (D3, ChartJS, etc)
-  A razão pela qual escolhemos o D3
+  A razão pela qual escolhemos o ChartJS
   Partir para o tutorial
