@@ -1,6 +1,6 @@
 # devisão do trabalho
-usamos chart.js => https://observablehq.com/@d3/gallery
-Examples: https://blog.bitsrc.io/11-javascript-charts-and-data-visualization-libraries-for-2018-f01a283a5727
+usamos chart.js => https://www.chartjs.org/
+Examples: https://www.chartjs.org/docs/latest/samples/bar/vertical.html
 
 nodejs + express + csvtojson
 https://www.npmjs.com/package/csvtojson
@@ -9,11 +9,16 @@ daniel
 - line
 - radar
 - scatter
-
-fournier
 - bar
 - pie
 - bubble
+
+fournier (parte avançada)
+- Carregar dinamicamente (ajax)
+- Animações
+- Adicionar e remover dados
+- Event triggers
+- etc
 
 - relatório (tutorial): Fazer tipo laboratório AMS
 - apresentação:
