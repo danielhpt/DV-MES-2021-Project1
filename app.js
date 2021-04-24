@@ -15,6 +15,9 @@ const api = {
     // view engine setup
     app.set('views', path.join(__dirname, 'views'));
 
+    app.engine('html', require('ejs').renderFile);
+    app.set('view engine', 'html');
+
     app.use(logger('dev'));
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
@@ -22,6 +25,15 @@ const api = {
     app.use(express.static(path.join(__dirname, 'public')));
 
     app.use('/', indexRouter);
+    app.use('/data/sample', async function(req, res, next) {
+
+      let json = await api.getJsonFromCsv('./data/flavors_of_cacao.csv');
+      console.log('json', typeof json);
+
+      res.setHeader('Content-Type', 'application/json');
+      res.end(JSON.stringify([0, 10, 5, 2, 20, 30, 45]));
+
+    });
 
     // catch 404 and forward to error handler
     app.use(function(req, res, next) {
@@ -65,6 +77,8 @@ const api = {
     });
   }
 
-}.init();
+};
+
+api.init();
 
 module.exports = app;

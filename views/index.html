@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualização de Informação - MES</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        var onLoad = function () {
+
+            $.get( "data/sample", function( res ) {
+
+                const data = {
+                    labels: labels = [
+                        'January',
+                        'February',
+                        'March',
+                        'April',
+                        'May',
+                        'June',
+                    ],
+                    datasets: [{
+                        label: 'My First dataset',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: res
+                    }]
+                };
+
+                var myChart = new Chart(
+                    document.getElementById('myChart'),
+                    {
+                        type: 'line',
+                        data,
+                        options: {}
+                    }
+                );
+
+            });
+
+        }
+    </script>
+</head>
+<body onload="onLoad()">
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+</body>
+</html>
