@@ -1,5 +1,5 @@
 # devisão do trabalho
-usamos D3js => https://observablehq.com/@d3/gallery
+usamos chart.js => https://observablehq.com/@d3/gallery
 Examples: https://blog.bitsrc.io/11-javascript-charts-and-data-visualization-libraries-for-2018-f01a283a5727
 
 nodejs + express + csvtojson
@@ -7,15 +7,13 @@ https://www.npmjs.com/package/csvtojson
 
 daniel
 - line
-- area
-- heatmap
+- radar
 - scatter
 
 fournier
 - bar
 - pie
 - bubble
-- networks
 
 - relatório (tutorial): Fazer tipo laboratório AMS
 - apresentação:

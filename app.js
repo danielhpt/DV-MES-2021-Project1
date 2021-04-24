@@ -50,10 +50,6 @@ const api = {
       res.render('error');
     });
 
-    //exemplo
-    let json = await this.getJsonFromCsv('./data/flavors_of_cacao.csv');
-    console.log('json', typeof json);
-
   },
   /**
    * Função para ler um ficheiro csv

@@ -4,11 +4,29 @@
     <title>Visualização de Informação - MES</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .divTable{
+            display: table;
+        }
+        .divTableRow {
+            display: table-row;
+        }
+        .divTableCell, .divTableHead {
+            border: 1px solid #999999;
+            display: table-cell;
+            padding: 3px 10px;
+            width: 300px;
+            height: 100px;
+        }
+        .divTableBody {
+            display: table-row-group;
+        }
+    </style>
     <script>
 
         var onLoad = function () {
 
-            $.get( "data/sample?file_name=flavors_of_cacao.csv", function( res ) {
+            $.get( "data/sample?file_name=sample.csv", function( res ) {
 
                 const data = {
                     labels: [
@@ -28,7 +46,7 @@
                 };
 
                 var myChart = new Chart(
-                    document.getElementById('myChart'),
+                    document.getElementById('myChart_1'),
                     {
                         type: 'line',
                         data,
@@ -42,8 +60,19 @@
     </script>
 </head>
 <body onload="onLoad()">
-    <div style="width: 300px; height: 300px;">
-        <canvas id="myChart"></canvas>
+<div class="divTable">
+    <div class="divTableBody">
+        <div class="divTableRow">
+            <div class="divTableCell"><canvas id="myChart_1"></canvas></div>
+            <div class="divTableCell"><canvas id="myChart_2"></canvas></div>
+            <div class="divTableCell"><canvas id="myChart_3"></canvas></div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell"><canvas id="myChart_4"></canvas></div>
+            <div class="divTableCell"><canvas id="myChart_5"></canvas></div>
+            <div class="divTableCell"><canvas id="myChart_6"></canvas></div>
+        </div>
     </div>
+</div>
 </body>
 </html>
