@@ -71,7 +71,8 @@ let app = {
                     backgroundColor: 'rgba(109, 198, 42, 0.9)'
                 }]
             },
-            options: {}
+            options: {
+            }
         }));
 
         this.charts.push(new Chart(document.getElementById("myChart_2"), {

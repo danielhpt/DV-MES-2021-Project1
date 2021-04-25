@@ -36,10 +36,120 @@
                 app.getChart(0).update();
 
             },
-
+            /**
+             * Get random data and label from server
+             */
             getDataFromServerSideForBarChart: () => {
 
-                handsOn.addDataToBarChart('Faro', 64560);
+                //ajax request
+                $.get( "data/getrandom", (data) => {
+
+                    //update data
+                    handsOn.addDataToBarChart(data.label, data.value);
+
+                });
+
+            },
+            /**
+             * Add slide delay animation
+             */
+            addDelayAnimationToBarChart: () => {
+
+                app.getChart(0).options.animation = {
+                    delay: (context) => {
+                        return context.dataIndex * 200;
+                    }
+                };
+
+                //to show animation
+                app.getChart(0).update();
+
+            },
+            /**
+             * Add progressive line animation
+             */
+            addProgressiveLineToLineChart: () => {
+
+                app.getChart(1).options.animation = {
+                    x: {
+                        type: 'number',
+                        easing: 'linear',
+                        duration: 500,
+                        from: NaN, // the point is initially skipped
+                        delay(context) {
+                            return context.dataIndex * 200;
+                        }
+                    }
+                };
+
+                //to show animation
+                app.getChart(1).update();
+
+            },
+            /**
+             * Add onclick listener
+             */
+            getValueFromPieChartOnClick: () => {
+
+                app.getChart(2).options.onClick = (event, arrayOfActiveElements) => {
+
+                    if(!arrayOfActiveElements.length)
+                        return;
+
+                    alert('Dataset: ' + arrayOfActiveElements[0].datasetIndex +
+                        '\nIndex: ' + arrayOfActiveElements[0].index +
+                        '\nValor: ' +
+                        event.chart.data.datasets[arrayOfActiveElements[0].datasetIndex].data[arrayOfActiveElements[0].index]
+                    );
+                };
+
+            },
+            /**
+             * Will dynamically smooth the radar chart
+             */
+            smoothRadarChart: () => {
+
+                app.getChart(3).options.elements.line.tension = 0.4;
+                app.getChart(3).update();
+
+            },
+            /**
+             * Add second chart on top of the first one
+             */
+            addLinetoBarChart: () => {
+
+                app.getChart(0).data.datasets.push({
+                    label: 'Some other dataset',
+                    data: [507220, 388434, 299938, 215284, 212474, 211359, 181919, 181724, 176218, 174382],
+                    borderColor: 'blue',
+                    type: 'line',
+                    order: 0
+                });
+
+                app.getChart(0).update();
+
+            },
+            /**
+             * Update bar color
+             */
+            setBarColors: () => {
+
+                app.getChart(0).data.datasets[0].backgroundColor = [
+                    'rgba(109, 198, 42, 0.7)',
+                    'rgba(23, 54, 120, 0.7)',
+                    'rgba(23, 120, 105, 0.7)',
+                    'rgba(23, 120, 54, 0.7)',
+                    'rgba(120, 120, 23, 0.7)',
+                    'rgba(120, 86, 23, 0.7)',
+                    'rgba(120, 23, 23, 0.7)',
+                    'rgba(120, 23, 58, 0.7)',
+                    'rgba(120, 23, 102, 0.7)',
+                    'rgba(102, 23, 120, 0.7)',
+                    'rgba(58, 23, 120, 0.7)',
+                    'rgba(29, 23, 120, 0.7)'
+                ];
+
+                app.getChart(0).update();
 
             }
 

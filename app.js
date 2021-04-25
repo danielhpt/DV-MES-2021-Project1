@@ -34,10 +34,17 @@ const api = {
 
     });
 
-    app.use('/data/barchartdemo', async function(req, res, next) {
+    /**
+     * Route that returns a random number between 0 and 500.000
+     */
+    app.use('/data/getrandom', async function(req, res, next) {
 
       res.setHeader('Content-Type', 'application/json');
-      res.end(JSON.stringify([Math.floor(Math.random() * 1000000)]));
+      res.end(
+          JSON.stringify({
+            label: Math.random().toString(36).substring(7),
+            value: Math.floor(Math.random() * 500000)
+          }));
 
     });
 
