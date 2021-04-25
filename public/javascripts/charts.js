@@ -2,6 +2,31 @@ let app = {
 
     charts: [],
 
+    // Top 10 councils with the largest population in Portugal, in 2018
+    cities: ['Lisboa', 'Sintra', 'Vila Nova de Gaia', 'Porto', 'Cascais', 'Loures', 'Braga', 'Amadora', 'Oeiras', 'Matosinhos'],
+    pop2018: [507220, 388434, 299938, 215284, 212474, 211359, 181919, 181724, 176218, 174382],
+    // Populations of those this.cities in 2011
+    pop2011: [547733, 377835, 302295, 237591, 206479, 205054, 181494, 175136, 172120, 175478],
+    //colors pallet
+    colors: [
+        'rgba(109, 198, 42, 0.7)',
+        'rgba(23, 54, 120, 0.7)',
+        'rgba(23, 120, 105, 0.7)',
+        'rgba(23, 120, 54, 0.7)',
+        'rgba(120, 120, 23, 0.7)',
+        'rgba(120, 86, 23, 0.7)',
+        'rgba(120, 23, 23, 0.7)',
+        'rgba(120, 23, 58, 0.7)',
+        'rgba(120, 23, 102, 0.7)',
+        'rgba(102, 23, 120, 0.7)',
+        'rgba(58, 23, 120, 0.7)',
+        'rgba(29, 23, 120, 0.7)',
+    ],
+    /**
+     * Used to get the chartjs object based on the layout position
+     * @param pos
+     * @return {null|*}
+     */
     getChart: function (pos) {
 
         if(this.charts[pos] === undefined)
@@ -12,12 +37,7 @@ let app = {
     },
 
     init: function () {
-
-        // Top 10 councils with the largest population in Portugal, in 2018
-        const cities = ['Lisboa', 'Sintra', 'Vila Nova de Gaia', 'Porto', 'Cascais', 'Loures', 'Braga', 'Amadora', 'Oeiras', 'Matosinhos'];
-        const pop2018 = [507220, 388434, 299938, 215284, 212474, 211359, 181919, 181724, 176218, 174382];
-        // Populations of those cities in 2011
-        const pop2011 = [547733, 377835, 302295, 237591, 206479, 205054, 181494, 175136, 172120, 175478];
+        
         // Longitude and latitude (x, y)
         const citGeo = [
             {x: -9.13333, y: 38.71667},
@@ -45,29 +65,14 @@ let app = {
             {x: -8.69630, y: 41.18440, r: 17.4382}
         ];
 
-        const colors = [
-            'rgba(109, 198, 42, 0.7)',
-            'rgba(23, 54, 120, 0.7)',
-            'rgba(23, 120, 105, 0.7)',
-            'rgba(23, 120, 54, 0.7)',
-            'rgba(120, 120, 23, 0.7)',
-            'rgba(120, 86, 23, 0.7)',
-            'rgba(120, 23, 23, 0.7)',
-            'rgba(120, 23, 58, 0.7)',
-            'rgba(120, 23, 102, 0.7)',
-            'rgba(102, 23, 120, 0.7)',
-            'rgba(58, 23, 120, 0.7)',
-            'rgba(29, 23, 120, 0.7)',
-        ];
-
         this.charts.push(new Chart(document.getElementById("myChart_1"), {
             type: 'bar',
 
             data: {
-                labels: cities,
+                labels: this.cities,
                 datasets: [{
                     label: "Population",
-                    data: pop2018,
+                    data: this.pop2018,
                     backgroundColor: 'rgba(109, 198, 42, 0.9)'
                 }]
             },
@@ -78,10 +83,10 @@ let app = {
         this.charts.push(new Chart(document.getElementById("myChart_2"), {
             type: 'line',
             data: {
-                labels: cities,
+                labels: this.cities,
                 datasets: [{
                     label: "Population",
-                    data: pop2018,
+                    data: this.pop2018,
                     backgroundColor: 'rgba(109, 198, 42, 1)'
                 }]
             },
@@ -97,11 +102,11 @@ let app = {
         this.charts.push(new Chart(document.getElementById("myChart_3"), {
             type: 'pie', // doughnut, pie
             data: {
-                labels: cities,
+                labels: this.cities,
                 datasets: [{
                     label: "Population",
-                    data: pop2018,
-                    backgroundColor: colors
+                    data: this.pop2018,
+                    backgroundColor: this.colors
                 }]
             },
             options: {}
@@ -110,16 +115,16 @@ let app = {
         this.charts.push(new Chart(document.getElementById("myChart_4"), {
             type: 'radar',
             data: {
-                labels: cities,
+                labels: this.cities,
                 datasets: [{
                     label: "Population in 2018",
-                    data: pop2018,
+                    data: this.pop2018,
                     fill: true,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgb(255, 99, 132)',
                 }, {
                     label: "Population in 2011",
-                    data: pop2011,
+                    data: this.pop2011,
                     fill: true,
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgb(54, 162, 235)',
@@ -137,11 +142,11 @@ let app = {
         this.charts.push(new Chart(document.getElementById("myChart_5"), {
             type: 'scatter',
             data: {
-                labels: cities,
+                labels: this.cities,
                 datasets: [{
                     label: "Population",
                     data: citGeo,
-                    backgroundColor: colors
+                    backgroundColor: this.colors
                 }]
             },
             options: {
@@ -157,11 +162,11 @@ let app = {
         this.charts.push(new Chart(document.getElementById("myChart_6"), {
             type: 'bubble',
             data: {
-                labels: cities,
+                labels: this.cities,
                 datasets: [{
                     label: "Population",
                     data: citGeoPop,
-                    backgroundColor: colors
+                    backgroundColor: this.colors
                 }]
             },
             options: {
