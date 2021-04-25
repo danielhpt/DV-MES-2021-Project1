@@ -25,14 +25,6 @@ const api = {
     app.use(express.static(path.join(__dirname, 'public')));
 
     app.use('/', indexRouter);
-    app.use('/data/sample', async function(req, res, next) {
-
-      let json = await api.getJsonFromCsv('./data/' + req.query.file_name);
-
-      res.setHeader('Content-Type', 'application/json');
-      res.end(JSON.stringify([0, 10, 5, 2, 20, 30, 45]));
-
-    });
 
     /**
      * Route that returns a random number between 0 and 500.000
