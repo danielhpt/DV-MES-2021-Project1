@@ -34,6 +34,13 @@ const api = {
 
     });
 
+    app.use('/data/barchartdemo', async function(req, res, next) {
+
+      res.setHeader('Content-Type', 'application/json');
+      res.end(JSON.stringify([Math.floor(Math.random() * 1000000)]));
+
+    });
+
     // catch 404 and forward to error handler
     app.use(function(req, res, next) {
       next(createError(404));

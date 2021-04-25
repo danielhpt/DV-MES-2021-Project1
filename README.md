@@ -14,6 +14,7 @@ daniel
 - bubble
 
 fournier (parte avançada)
+- API https://www.chartjs.org/docs/latest/api/
 - Carregar dinamicamente (ajax)
 - Animações
 - Adicionar e remover dados
