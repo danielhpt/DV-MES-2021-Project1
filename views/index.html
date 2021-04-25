@@ -15,7 +15,6 @@
             init: () => {
                 app.init();
             },
-
             /**
              * First activity
              * add data dynamically
@@ -96,10 +95,10 @@
                     if(!arrayOfActiveElements.length)
                         return;
 
-                    alert('Dataset: ' + arrayOfActiveElements[0].datasetIndex +
+                    alert(
+                        'Dataset: ' + arrayOfActiveElements[0].datasetIndex +
                         '\nIndex: ' + arrayOfActiveElements[0].index +
-                        '\nValor: ' +
-                        event.chart.data.datasets[arrayOfActiveElements[0].datasetIndex].data[arrayOfActiveElements[0].index]
+                        '\nValor: ' + event.chart.data.datasets[arrayOfActiveElements[0].datasetIndex].data[arrayOfActiveElements[0].index]
                     );
                 };
 

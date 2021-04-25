@@ -20,7 +20,7 @@ let app = {
         'rgba(120, 23, 102, 0.7)',
         'rgba(102, 23, 120, 0.7)',
         'rgba(58, 23, 120, 0.7)',
-        'rgba(29, 23, 120, 0.7)',
+        'rgba(29, 23, 120, 0.7)'
     ],
     /**
      * Used to get the chartjs object based on the layout position
